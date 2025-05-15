@@ -24,10 +24,10 @@ local function Init()
 		local sv = addon.ASV
 		setupName = setupName:lower()
 
-		if string.find(setupName, sv.name) then
+		if string.find(setupName, sv.name) and (GetCurrentQuickslot() ~= sv.slot) then
 			SetCurrentQuickslot(sv.slot)
 			SendMessage(sv.slot)
-		elseif sv.changeback then
+		elseif sv.changeback and (GetCurrentQuickslot() ~= sv.changebackSlot) then
 			SetCurrentQuickslot(sv.changebackSlot)
 			SendMessage(sv.changebackSlot)
 		end
