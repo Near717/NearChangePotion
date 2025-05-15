@@ -7,13 +7,16 @@ NearChangePotion = {
 		name = 'mudar pot',
 		changeback = false,
 		changebackSlot = 4,
+		sendMessage = true,
 	},
 }
 
 local addon = NearChangePotion
 
 local function SendMessage(slot)
-	d('[Change Potion]: Changed quickslot to ' .. tostring(slot))
+	if addon.ASV.sendMessage then
+		d('[Change Potion]: Changed quickslot to ' .. tostring(slot))
+	end
 end
 
 local function Init()
@@ -83,6 +86,14 @@ local function SetupSettings()
 		setFunc = function(v) sv.changebackSlot = v end,
 		default = addon.defaults.changebackSlot,
 		disabled = function() return not sv.changeback end,
+	}
+
+	optionsTable[#optionsTable+1] = {
+		type = 'checkbox',
+		name = 'Send message on change',
+		getFunc = function() return sv.sendMessage end,
+		setFunc = function(v) sv.sendMessage = v end,
+		default = addon.defaults.sendMessage,
 	}
 
 	LAM2:RegisterOptionControls(addon.name, optionsTable)
