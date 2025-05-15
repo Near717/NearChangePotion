@@ -15,7 +15,7 @@ local addon = NearChangePotion
 
 local function SendMessage(slot)
 	if addon.ASV.sendMessage then
-		d('[Change Potion]: Changed quickslot to ' .. tostring(slot))
+		d(string.format("[Change Potion]: %s %s", GetString(NEARCP_MESSAGE), tostring(slot)))
 	end
 end
 
@@ -54,7 +54,7 @@ local function SetupSettings()
 
 	optionsTable[#optionsTable + 1] = {
 		type = 'editbox',
-		name = 'Setup name contains',
+		name = GetString(NEARCP_LAM_NAME),
 		getFunc = function() return sv.name end,
 		setFunc = function(v) sv.name = v:lower() end,
 		isMultiline = false,
@@ -63,7 +63,7 @@ local function SetupSettings()
 
 	optionsTable[#optionsTable+1] = {
 		type = 'dropdown',
-		name = 'Slot to change to',
+		name = GetString(NEARCP_LAM_SLOT),
 		choices = slots,
 		getFunc = function() return sv.slot end,
 		setFunc = function(v) sv.slot = v end,
@@ -72,7 +72,7 @@ local function SetupSettings()
 
 	optionsTable[#optionsTable+1] = {
 		type = 'checkbox',
-		name = 'Change back on other setups',
+		name = GetString(NEARCP_LAM_CHANGEBACK),
 		getFunc = function() return sv.changeback end,
 		setFunc = function(v) sv.changeback = v end,
 		default = addon.defaults.changeback,
@@ -80,7 +80,7 @@ local function SetupSettings()
 
 	optionsTable[#optionsTable+1] = {
 		type = 'dropdown',
-		name = 'Slot to change back to',
+		name = GetString(NEARCP_LAM_CHANGEBACKSLOT),
 		choices = slots,
 		getFunc = function() return sv.changebackSlot end,
 		setFunc = function(v) sv.changebackSlot = v end,
@@ -90,7 +90,7 @@ local function SetupSettings()
 
 	optionsTable[#optionsTable+1] = {
 		type = 'checkbox',
-		name = 'Send message on change',
+		name = GetString(NEARCP_LAM_SENDMESSAGE),
 		getFunc = function() return sv.sendMessage end,
 		setFunc = function(v) sv.sendMessage = v end,
 		default = addon.defaults.sendMessage,
