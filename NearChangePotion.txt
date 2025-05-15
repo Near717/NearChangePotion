@@ -1,0 +1,15 @@
+## Title: Near's Change Potion (for wizard)
+## Description: Auto change selected quickslot if new setup name contains specific text.
+## Author: |cCC99FFnotnear|r
+## Version: 1.0
+## APIVersion: 101046
+## DependsOn: WizardsWardrobe LibAddonMenu-2.0
+## SavedVariables: NearChangePotion_Data
+
+# This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.
+# The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United States and/or other countries.
+# All rights reserved
+#
+# You can read the full terms at https://account.elderscrollsonline.com/add-on-terms
+
+NearChangePotion.lua
